@@ -58,9 +58,9 @@ func printCommandEvents(analyticsChannel <-chan *slacker.CommandEvent) {
 
 func main() {
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Error loading .env file: %v", err)
+	// Load environment variables from the `.env` file if it exists
+	if err := godotenv.Load(); err != nil {
+		log.Println("Warning: .env file not found, relying on system environment variables")
 	}
 
 	bot := slacker.NewClient(os.Getenv("SLACK_BOT_TOKEN"), os.Getenv("SLACK_APP_TOKEN"))
