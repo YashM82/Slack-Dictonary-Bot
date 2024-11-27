@@ -104,7 +104,7 @@ func main() {
 
 	defer cancel()
 
-	err = bot.Listen(ctx)
+	err := bot.Listen(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
